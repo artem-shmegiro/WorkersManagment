@@ -21,10 +21,6 @@
 
                     <button class="btn btn-primary btn-sm" type="submit">Загрузка</button>
                 </form>
-
-                @isset($path)
-                    <embed src="{{ asset('/storage/') . $path }}"/>
-                @endisset
             </div>
         </div>
     </div>

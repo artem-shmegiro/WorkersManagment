@@ -36,9 +36,13 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        Worker::create($request->all());
+        try {
+            Worker::create($request->all());
 
-        return redirect()->back();
+            return redirect()->back();
+        } catch (\Exception $e) {
+            redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**

@@ -40,9 +40,13 @@ class OrganizationController extends Controller
      */
     public function store(Request $request)
     {
-        Organization::create($request->all());
+        try {
+            Organization::create($request->all());
 
-        return redirect()->route('admin.organization.index');
+            return redirect()->route('admin.organization.index');
+            } catch (\Exception $e){
+            redirect()->back()->with('error', $e->getMessage());
+        }
     }
 
     /**
