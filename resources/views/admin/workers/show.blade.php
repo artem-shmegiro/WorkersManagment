@@ -11,7 +11,20 @@
                 <p class="card-text">Дата рождения: {{ $worker->birth }}</p>
                 <p class="card-text">ИНН: {{ $worker->INN }}</p>
                 <p class="card-text">СНИЛС: {{ $worker->SNILS }}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <form action="{{ route('file.upload') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <h5>Загрузка файла</h5>
+                            <input type="file" class="form-control-file" name="file">
+                    </div>
+
+                    <button class="btn btn-primary btn-sm" type="submit">Загрузка</button>
+                </form>
+
+                @isset($path)
+                    <embed src="{{ asset('/storage/') . $path }}"/>
+                @endisset
             </div>
         </div>
     </div>
