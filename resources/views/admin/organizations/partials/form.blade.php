@@ -1,16 +1,16 @@
 <div class="form-group">
     <label>Наименование</label>
     <input type="text" class="form-control" name="title" placeholder="Наименование организации"
-           value="{{ $organization->title ?? "" }}" required>
+           value="{{ $organization->title ?? $xml->title ?? "" }}" required>
 </div>
 <div class="form-group">
     <label>ОГРН</label>
     <input type="number" class="form-control" name="OGRN" placeholder="ОГРН организации"
-           value="{{ $organization->OGRN ?? "" }}" required>
+           value="{{ $organization->OGRN ?? $xml->OGRN ?? "" }}" required>
 </div>
 <div class="form-group">
     <label>ОКТМО</label>
     <input type="number" class="form-control" name="OKTMO" placeholder="ОКТМО организации"
-           value="{{ $organization->OKTMO ?? "" }}" required>
+           value="{{ $organization->OKTMO ?? $xml->OKTMO ?? "" }}" required>
 </div>
 <input type="submit" class="btn btn-success" value="Сохранить">
