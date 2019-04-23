@@ -8,7 +8,6 @@ class DownloadController extends Controller
 {
     public function upload()
     {
-        //$request->file('file')->store('uploads', 'public');
 
         //$file = utf8_encode(file_get_contents($_FILES['file']['tmp_name']));
         //$xml = new \SimpleXMLElement($file);
@@ -18,8 +17,6 @@ class DownloadController extends Controller
             'organization'  => [],
             'xml' => $xml
         ]);
-
-        //return redirect()->back();
 
 
     }
