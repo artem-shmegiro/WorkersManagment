@@ -14,7 +14,8 @@
             @include('admin.organizations.partials.form')
         </form>
 
-        <form action="{{ route('file.upload') }}" method="post" enctype="multipart/form-data" class="form-inline float-right">
+        <form action="{{ route('organization.upload') }}" method="post" enctype="multipart/form-data"
+              class="form-inline float-right">
             {{ csrf_field() }}
 
             <div class="form-group">

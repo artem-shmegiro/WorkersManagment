@@ -23,9 +23,13 @@ class WorkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
-        //
+        return view('admin.workers.create', [
+            'worker'  => [],
+            'id' => $id
+
+        ]);
     }
 
     /**
@@ -39,7 +43,7 @@ class WorkerController extends Controller
         try {
             Worker::create($request->all());
 
-            return redirect()->back();
+            return redirect()->route('admin.organization.index');
         } catch (\Exception $e) {
             redirect()->back()->with('error', $e->getMessage());
         }

@@ -6,18 +6,25 @@ use Illuminate\Http\Request;
 
 class DownloadController extends Controller
 {
-    public function upload()
+    public function organizationUpload()
     {
-
-        //$file = utf8_encode(file_get_contents($_FILES['file']['tmp_name']));
-        //$xml = new \SimpleXMLElement($file);
-        $xml = simplexml_load_string(utf8_encode(file_get_contents($_FILES['file']['tmp_name'])));
+        $xml = simplexml_load_string(mb_convert_encoding(file_get_contents($_FILES['file']['tmp_name']), "UTF-8"));
 
         return view('admin.organizations.create', [
-            'organization'  => [],
+            'organization' => [],
             'xml' => $xml
         ]);
 
+    }
 
+    public function workerUpload($id = null)
+    {
+        $xml = simplexml_load_string(mb_convert_encoding(file_get_contents($_FILES['file']['tmp_name']), "UTF-8"));
+
+        return view('admin.workers.create', [
+            'worker' => [],
+            'id' => $id,
+            'xml' => $xml
+        ]);
     }
 }
